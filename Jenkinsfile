@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         registry = "ranimmbarek/DevopsLab" 
+        registryCredential = 'docker'
     }
 
     stages {
@@ -24,7 +25,7 @@ pipeline {
             steps {
                 // Push the Docker image to DockerHub
                 script {
-                    docker.withRegistry('') {
+                    docker.withRegistry('',registryCredential) {
                         docker.image("${registry}:${BUILD_NUMBER}").push('latest')
                     }
                 }
