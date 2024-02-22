@@ -15,20 +15,25 @@ pipeline {
         stage('Build Docker image') {
             steps {
                 script {
-                    docker.build("${registry}:${BUILD_NUMBER}")
+                    docker.build("${registry}:1.3")
                 }
             }
         }
+        stage('Login to Docker Hub') {
+              steps{
+                        withCredentials([string(credentialsId: 'dockerHubPassword', variable: 'dockerHubPassword')]) {
+                	    sh 'docker login -u chirazdoss -p ${dockerHubPassword}'
+                        echo 'Login Completed'
+                     }
+                    }
+                }
 
         stage('Push to DockerHub') {
             steps {
-                // Push the Docker image to DockerHub
-                script {
-                    docker.withRegistry('') {
-                        docker.image("${registry}:${BUILD_NUMBER}").push('latest')
-                    }
-                }
+                sh 'docker push ${registry}:1.3'
+                echo 'Push Image Completed'
             }
         }
+
     }
 }
