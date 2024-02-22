@@ -3,14 +3,12 @@ pipeline {
 
     environment {
         registry = "ranimmbarek/DevopsLab"
+        dockerImage = ''
     }
     stages{
         stage('Build Docker image') {
             steps {
-                script {
-                    def docker = docker.image('docker')
-                    docker.build("${registry}:${BUILD_NUMBER}")
-                }
+               script {dockerImage =docker.build registry + ":$BUILD_NUMBER"}
             }
         }
     }    
