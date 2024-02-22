@@ -4,8 +4,7 @@ pipeline {
     environment {
         registry = "ranimmbarek/DevopsLab"
     }
-
-
+    stages{
         stage('Build Docker image') {
             steps {
                 script {
@@ -13,5 +12,6 @@ pipeline {
                 }
             }
         }
+    }    
 }
 
