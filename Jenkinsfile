@@ -1,10 +1,9 @@
 pipeline {
-    agent any
-
     environment {
         registry = "ranimmbarek/DevopsLab"
         dockerImage = ''
     }
+    agent any
     stages{
         stage('Build Docker image') {
             steps {
