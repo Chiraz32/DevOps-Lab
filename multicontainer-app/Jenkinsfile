@@ -1,5 +1,6 @@
 ﻿pipeline {
   environment {
+
        registry = "farahsedd/DevOps-Lab"
        docker Image = ''
   }
