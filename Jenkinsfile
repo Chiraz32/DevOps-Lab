@@ -6,12 +6,12 @@ pipeline {
         registryCredential = 'docker'
     }
 
-    stages {
-        stage('Pull from GitHub') {
-            steps {
-                git 'https://github.com/farahsedd/DevOps-Lab'
-            }
-        }
+   // stages {
+  //      stage('Pull from GitHub') {
+    //        steps {
+       //         git 'https://github.com/farahsedd/DevOps-Lab'
+     //       }
+  //      }
 
         stage('Build Docker image') {
             steps {
