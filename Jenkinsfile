@@ -1,16 +1,15 @@
 pipeline {
     environment {
         registry = "ranimmbarek/DevopsLab"
+        dockerImage = ''
     }
-    agent any
-    stages{
-        stage('Build Docker image') {
+    agent any 
+    stages {
+        stage('Pull & Build') { 
             steps {
-               script {
-                   docker.build("${registry}:${BUILD_NUMBER}", "-f https://github.com/farahsedd/DevOps-Lab/blob/main/nodejs-app/Dockerfile")
-               }
+                sh 'git pull https://github.com/farahsedd/DevOps-Lab'
+                bat 'cd nodejs-app'
             }
         }
-    }    
+    }
 }
-
