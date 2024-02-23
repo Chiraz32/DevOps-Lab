@@ -2,7 +2,7 @@ FROM node:12
 
 WORKDIR /app
 
-COPY package.json /app
+COPY nodejs-app/package.json /app
 
 RUN npm install
 
