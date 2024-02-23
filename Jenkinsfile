@@ -2,7 +2,7 @@ pipeline {
     environment {
        registry = "farahseddik/learnin-app"
        registryCredential = 'farahseddik'
-       docker Image = ''
+       dockerImage = ''
   }
   agent any
   stages {
