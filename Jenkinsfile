@@ -7,8 +7,9 @@ pipeline {
   agent any
   stages {
      stage('Build') {
-         bat 'cd nodejs-app'
+
        steps {
+       bat 'cd nodejs-app'
         script {dockerImage =docker.build registry + ":$BUILD_NUMBER"}
        }
   }
