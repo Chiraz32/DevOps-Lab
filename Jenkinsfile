@@ -1,7 +1,7 @@
 pipeline {
     environment {
        registry = "farahseddik/learnin-app"
-       registryCredential = 'farahgithub'
+       registryCredential = 'farahdocker'
        dockerImage = ''
        dockerfilePath = 'nodejs-app/Dockerfile'
 
