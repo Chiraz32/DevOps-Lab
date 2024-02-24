@@ -15,5 +15,15 @@ pipeline {
         }       
       }
    }
+    stage('Push') {
+     steps {
+        script {
+            docker.withRegistry( '', registryCredential ) {
+                  dockerImage.push()
+            }
+        }
+     }
+  }
+
  }
 }
