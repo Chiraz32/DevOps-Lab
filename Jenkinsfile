@@ -26,7 +26,7 @@ pipeline {
   }
    stage('Run') {
      steps {
-       script {  dockerImage.run("-p 80:80 learning-app-jenkins")
+       script {  dockerImage.run("-p 80:80 --name learning-app-jenkins")
        }
      }
    }
